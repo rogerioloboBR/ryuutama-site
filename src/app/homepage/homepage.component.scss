@@ -9,18 +9,24 @@
   text-align: center;
 }
 
-.hero-image-placeholder {
-  width: 80%;
-  max-width: 600px;
-  height: 300px; /* Ajuste conforme sua imagem */
-  background-color: #ccc; /* Cor provisória */
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  border: 1px dashed #999; /* Apenas para visualizar o placeholder */
+.hero-image-container {
+  width: 90%; /* Ocupa boa parte da largura em telas pequenas */
+  max-width: 550px; /* Tamanho máximo da imagem, ajuste como preferir */
+  margin-bottom: 2rem; /* Espaço abaixo da imagem em telas pequenas */
+  border-radius: 8px; /* Opcional: Cantos arredondados */
+  overflow: hidden; /* Garante que a imagem fique dentro dos cantos arredondados */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Opcional: Sombra suave */
+  /* REMOVER estilos de placeholder como background-color, border, color, display: flex, etc. */
 }
+
+/* Estilos para a imagem em si */
+.hero-image-container img {
+  display: block; /* Remove espaço extra indesejado abaixo da imagem */
+  width: 100%; /* Faz a imagem ocupar todo o espaço do container */
+  height: auto; /* Mantém a proporção original da imagem */
+  /* object-fit: cover; */ /* Descomente se quiser que a imagem preencha e corte */
+}
+
 
 .hero-content {
   max-width: 800px; /* Limita largura do bloco de texto */
