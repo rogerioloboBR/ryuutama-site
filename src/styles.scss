@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+/* --- Definição de Variáveis (Sugestão - podem ir para :root em styles.css) --- */
+:host { /* Aplica variáveis ao escopo do componente */
+  --ryutama-green-dark: #3e563f;
+  --ryutama-green-medium: #4a7c59;
+  --ryutama-green-light: #d4e0c4;
+  --ryutama-cream: #f0f4f8; /* Fundo Hero */
+  --ryutama-background-alt: #ffffff; /* Fundo Highlights */
+  --ryutama-cta-bg: #e2e8f0; /* Fundo CTA Final */
+  --text-color-dark: #2d3748;
+  --text-color-light: white;
+  --font-serif-headings: 'Merriweather', serif; /* FONTE EXEMPLO - SUBSTITUA */
+  --font-serif-poem: 'Georgia', serif;       /* FONTE EXEMPLO - SUBSTITUA */
+  --font-sans-body: 'Lato', sans-serif;        /* FONTE EXEMPLO - SUBSTITUA */
+}
