@@ -1,0 +1,61 @@
+/* Estilos para .hero-section, .hero-content, .highlights-section, .highlight-item, .cta-button, etc. */
+
+.hero-section {
+  /* Ex: display: flex; align-items: center; min-height: 80vh; */
+  padding: 2rem;
+  background-color: #f0f4f8; /* Cor de exemplo */
+}
+
+.highlights-section {
+  padding: 2rem;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Layout responsivo */
+  gap: 1.5rem; /* Espaçamento entre itens */
+  margin-top: 1rem;
+}
+
+.highlight-item {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #ddd; /* Exemplo */
+  border-radius: 8px; /* Exemplo */
+}
+
+.highlight-item .icon-placeholder {
+  font-size: 2.5rem; /* Tamanho do ícone - ajustar */
+  margin-bottom: 0.5rem;
+  display: block; /* Para margem funcionar */
+  color: #4a7c59; /* Cor de exemplo */
+}
+
+.cta-button {
+  /* Estilos base para botões */
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0.5rem;
+  font-weight: bold;
+}
+
+.cta-button.primary {
+  background-color: #4a7c59; /* Cor de exemplo */
+  color: white;
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: #4a7c59; /* Cor de exemplo */
+  border: 1px solid #4a7c59; /* Exemplo */
+}
+
+.final-cta {
+    text-align: center;
+    padding: 2rem;
+    background-color: #e2e8f0; /* Cor de exemplo */
+}
+
+/* Adicionar mais estilos e media queries para responsividade */
