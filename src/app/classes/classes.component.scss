@@ -1,45 +1,99 @@
-/* Em src/app/classes/classes.component.css */
+/* Arquivo: src/app/classes/classes.component.css */
+/* === CÓDIGO AJUSTADO PARA INCLUIR FUNDO E MOLDURA === */
+
 .class-detail {
   display: flex;
   align-items: flex-start; /* Alinha pelo topo */
   gap: 1.5rem; /* Espaço entre imagem e texto */
   margin-bottom: 2rem; /* Espaço entre as classes */
+
+  /* --- Adicionando Fundo de Pergaminho --- */
+  /* !! Certifique-se que este caminho está correto para sua imagem fundo.png !! */
+  background-image: url('../../assets/img/fundo.png');
+  /* Estica a imagem para preencher. Pode distorcer um pouco. */
+  background-size: 100% 100%;
+  /* Alternativa: background-size: cover; background-position: center; (Cobre e corta) */
+  background-repeat: no-repeat;
+  /* Padding interno para o conteúdo não colar nas bordas do pergaminho */
+  padding: 2rem;
+  border-radius: 4px; /* Opcional: Leve arredondamento nas bordas do pergaminho */
+  /* background-color: #fdf5e6; */ /* Opcional: Cor de fundo caso a imagem falhe */
+  /* border: 1px solid #b8a98f; */ /* Opcional: Borda externa sutil */
+  /* ----------------------------------------- */
 }
 
 .class-image-container {
   flex-shrink: 0; /* Impede que o container da imagem encolha */
   width: 150px; /* Largura fixa para a imagem - ajuste conforme necessário */
+
+  /* === Adicionando Moldura na Imagem (inspirado no livro) === */
+  border: 3px solid #a37b4a; /* Cor marrom/dourada para a borda */
+  padding: 5px; /* Espaço entre a borda e a imagem */
+  background-color: #fff; /* Fundo branco atrás da imagem */
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Sombra leve para dar profundidade */
+  /* -------------------------------------------------------- */
 }
 
 .class-image {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 4px; /* Opcional */
+  /* O border-radius foi removido daqui para aplicar no container, se desejado */
 }
 
 .class-text {
   flex-grow: 1; /* Faz o texto ocupar o espaço restante */
+  /* Garante contraste do texto sobre o pergaminho */
+  color: var(--text-color-dark, #2d3748); /* Usar variável global ou cor direta */
 }
 
 .class-text h3 {
-  margin-top: 0; /* Remove margem do topo do título da classe */
+  margin-top: 0; /* Remove margem do topo */
   font-size: 1.8rem; /* Exemplo */
-  color: var(--ryutama-green-medium); /* Exemplo */
+  color: var(--ryutama-green-medium, #4a7c59); /* Usar variável global ou cor direta */
+  /* Adiciona linha e espaçamento abaixo do título da classe */
+  border-bottom: 1px solid rgba(163, 123, 74, 0.5); /* Linha sutil cor de borda */
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
 }
 
-/* Adicionar media query para empilhar imagem e texto em telas pequenas */
+.class-text p {
+  line-height: 1.6; /* Espaçamento entre linhas do texto */
+  margin-bottom: 0.8rem; /* Espaço entre parágrafos */
+}
+
+.class-text p strong { /* Estilo para os Talentos listados */
+   color: var(--ryutama-green-dark, #3e563f); /* Usar variável ou cor direta */
+}
+
+
+/* Media query para empilhar em telas pequenas */
 @media (max-width: 600px) {
   .class-detail {
     flex-direction: column;
-    align-items: center; /* Centraliza imagem e texto na coluna */
-    text-align: center;
+    align-items: center; /* Centraliza itens na coluna */
+    text-align: center; /* Centraliza texto do container */
+    padding: 1.5rem; /* Reduz padding */
+    /* Ajusta o fundo para 'cover' que pode ficar melhor no mobile */
+    background-size: cover;
+    background-position: center;
   }
   .class-image-container {
     width: 120px; /* Imagem menor no mobile */
     margin-bottom: 1rem;
+    border-width: 2px; /* Borda da moldura mais fina */
+    padding: 3px;
   }
-   .class-text {
-     text-align: left; /* Ou manter center se preferir */
+  .class-text {
+    text-align: center; /* Garante centralização do texto */
+    width: 100%;
+  }
+   .class-text h3 {
+     font-size: 1.6rem;
+     border-bottom: none; /* Remove linha abaixo do título no mobile (opcional) */
+     text-align: center;
+   }
+   .class-text p {
+      text-align: center; /* Ou left */
    }
 }
