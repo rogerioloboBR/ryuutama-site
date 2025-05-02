@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-/* --- Definição de Variáveis (Sugestão - podem ir para :root em styles.css) --- */
-:host { /* Aplica variáveis ao escopo do componente */
+/* --- Estilos Globais --- */
+html {
+  scroll-behavior: smooth; /* Mantém a rolagem suave */
+}
+
+/* --- Definição de Variáveis Globais --- */
+:root {
   --ryutama-green-dark: #3e563f;
   --ryutama-green-medium: #4a7c59;
   --ryutama-green-light: #d4e0c4;
@@ -10,7 +15,48 @@
   --text-color-dark: #2d3748;
   --text-color-light: white;
   --font-serif-headings: 'Merriweather', serif; /* FONTE EXEMPLO - SUBSTITUA */
-  --font-serif-poem: 'Georgia', serif;       /* FONTE EXEMPLO - SUBSTITUA */
+  --font-serif-poem: 'Georgia', serif;        /* FONTE EXEMPLO - SUBSTITUA */
   --font-sans-body: 'Lato', sans-serif;        /* FONTE EXEMPLO - SUBSTITUA */
+
+  /* Adicione outras variáveis globais aqui se precisar */
 }
-html { scroll-behavior: smooth; }
+
+
+body {
+  /* É bom definir a fonte padrão do corpo aqui */
+  font-family: var(--font-sans-body);
+  margin: 0; /* Remove margens padrão do body */
+  color: var(--text-color-dark); /* Define cor padrão do texto */
+  line-height: 1.6; /* Define altura de linha padrão */
+}
+
+/* Adicione outros estilos globais aqui (links, títulos gerais, etc.) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif-headings); /* Aplica fonte de título padrão */
+  color: var(--ryutama-green-dark); /* Cor padrão para títulos */
+}
+
+a { /* Estilo base para links */
+   color: var(--ryutama-green-medium);
+   text-decoration: none; /* Remove sublinhado padrão */
+}
+
+a:hover {
+   text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Classe para aplicar padding padrão às seções principais */
+.content-section-inner {
+    padding: 2rem;
+    max-width: 900px; /* Limita largura do conteúdo */
+    margin: 1rem auto; /* Centraliza e adiciona espaço vertical */
+}
+
+.disclaimer { /* Estilo para os avisos */
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #666;
+    border-left: 3px solid var(--ryutama-green-light);
+    padding-left: 10px;
+    margin-bottom: 1.5rem;
+}
