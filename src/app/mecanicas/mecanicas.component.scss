@@ -68,7 +68,7 @@
   .mechanics-layout,
   .combat-layout { /* Aplicando a ambos os layouts */
     display: flex;
-    align-items: center; /* Alinha verticalmente (ou flex-start) */
+    align-items: flex-start; /* Alinha verticalmente (ou flex-start) */
     gap: 2.5rem;          /* Espaço entre imagem e texto */
   }
 
