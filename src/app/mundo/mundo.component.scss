@@ -1,0 +1,16 @@
+/* Em src/app/mundo/mundo.component.css (Opcional) */
+.world-creation-fields dt { /* Termo (Nome do Campo) */
+  font-weight: bold;
+  color: var(--ryutama-green-medium, #4a7c59); /* Cor de destaque */
+  margin-top: 1.2rem; /* Espaço antes de cada termo */
+  font-size: 1.1rem;
+}
+
+.world-creation-fields dd { /* Descrição */
+  margin-left: 0; /* Remove indentação padrão do <dd> */
+  margin-bottom: 1rem; /* Espaço abaixo da descrição */
+  padding-left: 1.2rem; /* Adiciona um recuo à esquerda */
+  border-left: 3px solid var(--ryutama-green-light, #d4e0c4); /* Linha lateral sutil */
+  font-size: 0.95rem;
+  line-height: 1.6;
+}

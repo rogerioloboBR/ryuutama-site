@@ -6,6 +6,7 @@ import { ClassesComponent } from './classes/classes.component';
 import { RyuujinComponent } from './ryuujin/ryuujin.component';
 import { MundoComponent } from './mundo/mundo.component';
 import { RecursosComponent } from './recursos/recursos.component';
+import { ComoJogarComponent } from './como-jogar/como-jogar.component';
 
 
 export const routes: Routes = [
@@ -19,5 +20,6 @@ export const routes: Routes = [
   { path: 'ryuujin', component: RyuujinComponent }, // Ou /mestres
   { path: 'mundo', component: MundoComponent },
   { path: 'recursos', component: RecursosComponent }, // Incluirá "Onde Comprar"
+  { path: 'como-jogar', component: ComoJogarComponent },
   { path: '**', redirectTo: '' } // Rota coringa
 ];

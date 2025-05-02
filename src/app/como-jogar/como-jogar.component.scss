@@ -1,0 +1,30 @@
+/* Adicionar ao arquivo src/app/como-jogar/como-jogar.component.css */
+
+.page-illustration {
+  max-width: 600px; /* Limita a largura máxima da imagem */
+  margin: 1.5rem auto 2.5rem auto; /* Centraliza e adiciona margem vertical (topo auto baixo) */
+  border-radius: 6px; /* Opcional: cantos suaves */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12); /* Opcional: sombra um pouco mais forte */
+  overflow: hidden; /* Garante que a imagem respeite o border-radius */
+  border: 1px solid #eee; /* Borda clara muito sutil */
+}
+
+.page-illustration img {
+  display: block; /* Remove espaço extra abaixo */
+  width: 100%;   /* Imagem responsiva, preenche o container */
+  height: auto;  /* Mantém proporção */
+}
+
+/* Ajuste responsivo opcional para a imagem */
+@media (max-width: 767px) {
+    .page-illustration {
+        max-width: 90%; /* Imagem ocupa mais largura em telas menores */
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Ajuste para garantir que o primeiro parágrafo após a imagem tenha espaço */
+.page-illustration + p {
+    margin-top: 2rem; /* Adiciona espaço entre a imagem e o primeiro parágrafo */
+}
