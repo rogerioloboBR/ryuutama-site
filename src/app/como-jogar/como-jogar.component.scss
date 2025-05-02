@@ -1,4 +1,5 @@
 /* Arquivo: src/app/como-jogar/como-jogar.component.css (ou .scss) */
+/* === CÓDIGO AJUSTADO COM ESTILOS DE DESTAQUE === */
 
 /* Estilos gerais para a página (podem vir de styles.scss) */
 /* .content-section-inner { ... } */
@@ -57,35 +58,39 @@
 /* ======================================================= */
 
 
-/* === Estilos para Destaques no Texto === */
+/* === ESTILOS PARA DESTAQUES NO TEXTO (ADICIONADOS/AJUSTADOS) === */
 .gm-name {
   font-weight: bold;
-  color: var(--ryutama-green-dark, #3e563f); /* Cor para o GM */
+  color: var(--ryutama-blue); /* Cor para o GM (Verde Escuro) */
 }
 
 .player-name {
   font-weight: bold;
-  color: var(--ryutama-green-medium, #4a7c59); /* Cor para Jogadores */
+  color: var(--ryutama-green-medium, #4a7c59); /* Cor para Jogadores (Verde Médio) */
 }
 
 .dice-roll {
   font-weight: bold;
-  color: #c53030; /* Cor para rolagens (ex: vermelho escuro) */
-  /* background-color: #fefcbf; */ /* Opcional: fundo amarelo claro */
+  color: #b92121; /* Cor para rolagens (Vermelho um pouco menos escuro) */
+  /* Estilos opcionais que podem ser descomentados se desejar: */
+  /* background-color: #fff9c4; */ /* Fundo amarelo bem claro */
   /* padding: 0.1em 0.3em; */
   /* border-radius: 3px; */
+  /* border: 1px solid #fff176; */ /* Borda amarela clara */
 }
 
 .mechanic-highlight {
   background-color: var(--ryutama-cream, #f0f4f8); /* Fundo leve */
-  padding: 0.1rem 0.4rem;
-  border-radius: 3px;
+  padding: 0.15rem 0.5rem; /* Aumenta padding levemente */
+  border-radius: 4px; /* Mais arredondado */
   font-family: monospace; /* Fonte monoespaçada */
   font-size: 0.9em;
   border: 1px solid var(--ryutama-green-light, #d4e0c4);
-  color: var(--text-color-dark);
+  color: var(--text-color-dark, #2d3748); /* Cor do texto padrão */
+  display: inline-block; /* Para padding funcionar corretamente */
+  line-height: 1.3; /* Ajusta altura da linha se necessário */
 }
-/* ==================================== */
+/* ======================================================= */
 
 
 /* Estilos para o restante do conteúdo da página */
@@ -97,10 +102,10 @@
 }
 
 .content-section-inner section h3 {
-  margin-top: 0; /* Remove margem topo dos H3 de seção */
+  margin-top: 2rem; /* Adiciona espaço acima dos H3 de seção */
   margin-bottom: 1.5rem;
   font-size: 1.6rem;
-  color: var(--ryutama-green-medium);
+  color: var(--ryutama-green-medium); /* Usa verde médio para H3 */
   border-bottom: 1px solid var(--ryutama-green-light, #d4e0c4);
   padding-bottom: 0.5rem;
 }
@@ -108,7 +113,7 @@
 /* Ajuste responsivo para imagem/texto intro */
 @media (max-width: 799px) { /* Abaixo do ponto de quebra do flex */
   .page-illustration {
-    max-width: 80%; /* Imagem maior em telas médias/pequenas */
+    max-width: 80%;
   }
    .intro-text-beside p {
      text-align: left; /* Melhora leitura */

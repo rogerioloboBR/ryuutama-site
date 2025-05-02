@@ -1,0 +1,129 @@
+/* --- Layout Comum para Seções com Imagem | Texto --- */
+
+/* Container principal para layout (Mobile: empilhado por padrão) */
+.mechanics-layout,
+.combat-layout { /* Incluindo .combat-layout para consistência */
+  margin-top: 1.5rem; /* Espaço acima do bloco imagem/texto */
+  margin-bottom: 1.5rem; /* Espaço abaixo do bloco imagem/texto */
+}
+
+/* Estilo base para todas as imagens nestes layouts (Mobile) */
+.mechanics-image,
+.battlefield-image {
+  display: block;
+  max-width: 90%; /* Ocupa bastante espaço no mobile */
+  margin: 1rem auto 1rem auto; /* Centraliza e margem vertical */
+  border: 1px solid #eee;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: white;
+}
+
+/* Modificadores específicos de tamanho/estilo (Mobile) */
+.mechanics-image.character-example {
+  max-width: 180px; /* Imagem de personagem menor */
+  border: 2px solid var(--ryutama-green-light, #d4e0c4);
+  padding: 4px;
+}
+.mechanics-image.magic-example {
+  max-width: 350px; /* Imagem de magia maior */
+  border-color: #ccc;
+}
+.battlefield-image {
+   max-width: 400px; /* Imagem do mapa de batalha */
+   border-color: #ccc;
+}
+
+/* Estilos para todas as tags <img> dentro dos containers de imagem */
+.mechanics-image img,
+.battlefield-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Estilo base para container de texto */
+.mechanics-text,
+.combat-text {
+   /* Estilos base se necessário */
+}
+
+/* Estilo base para parágrafos dentro dos textos */
+.mechanics-text p,
+.combat-text p {
+  text-align: justify;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+.mechanics-text p:last-child,
+.combat-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* --- Layout Lado a Lado para Telas Maiores --- */
+@media (min-width: 768px) { /* Ajuste ponto de quebra se necessário */
+
+  .mechanics-layout,
+  .combat-layout { /* Aplicando a ambos os layouts */
+    display: flex;
+    align-items: center; /* Alinha verticalmente (ou flex-start) */
+    gap: 2.5rem;          /* Espaço entre imagem e texto */
+  }
+
+  /* Resetar margem auto das imagens e definir largura fixa */
+  .mechanics-image,
+  .battlefield-image {
+    margin: 0; /* Necessário no flex */
+
+    /* Tamanhos fixos para cada tipo de imagem no layout flex */
+    &.character-example { /* Seletor SCSS para aninhar - se for CSS puro, escreva separado */
+       flex: 0 0 160px;
+       max-width: 160px;
+    }
+    &.magic-example {
+       flex: 0 0 220px;
+       max-width: 220px;
+    }
+    /* Se .battlefield-image não usar .mechanics-image como base: */
+    /* (Caso contrário, ajuste a regra acima) */
+     &.battlefield-image {
+        flex: 0 0 280px;
+        max-width: 280px;
+     }
+     /* Forma alternativa em CSS puro:
+     .mechanics-image.character-example { flex: 0 0 160px; max-width: 160px; }
+     .mechanics-image.magic-example { flex: 0 0 220px; max-width: 220px; }
+     .battlefield-image { flex: 0 0 280px; max-width: 280px; margin: 0; }
+     */
+  }
+
+
+  /* Texto ocupa o espaço restante */
+  .mechanics-text,
+  .combat-text {
+    flex: 1;
+    text-align: left; /* Alinha texto à esquerda */
+  }
+   .mechanics-text p,
+   .combat-text p {
+       text-align: left; /* Garante alinhamento */
+   }
+}
+
+/* Ajuste adicional para telas muito pequenas (Mantido) */
+@media (max-width: 480px) {
+    /* Ajuste genérico para imagens em layout empilhado */
+    .mechanics-image,
+    .battlefield-image {
+        max-width: 90%;
+    }
+    .combat-text p,
+    .mechanics-text p { /* Aplicar também ao .mechanics-text */
+       text-align: left;
+    }
+}
+
+/* OBS: Os estilos de destaque (.gm-name, .player-name, etc.)
+   não foram incluídos aqui pois pertencem ao como-jogar.component.css */
