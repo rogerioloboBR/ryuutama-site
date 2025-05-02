@@ -1,23 +1,91 @@
+/* Arquivo: src/app/o-que-e/o-que-e.component.css */
+/* === CÓDIGO AJUSTADO PARA LAYOUT IMAGEM | TEXTO NAS SEÇÕES === */
+
+/* Estilos base para ilustração (Mobile - imagem acima do texto) */
 .section-illustration {
-  max-width: 500px; /* Limita largura das imagens */
-  margin: 0.5rem auto 1.8rem auto; /* Margem acima(pouca)/horizontal(auto)/abaixo(mais)/horizontal(auto) */
+  max-width: 450px; /* Limita largura no mobile */
+  margin: 1rem auto 1.5rem auto; /* Margem acima/horizontal/abaixo/horizontal */
   border-radius: 4px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   overflow: hidden;
   border: 1px solid #eaeaea; /* Borda bem clara */
   background-color: #fff; /* Fundo branco, caso a imagem tenha transparência */
 }
 
 .section-illustration img {
-  display: block;
-  width: 100%;
-  height: auto;
+  display: block; /* Remove espaços extras */
+  width: 100%; /* Imagem ocupa container */
+  height: auto; /* Mantém proporção */
 }
 
-/* Ajustes de margem para os H3 quando uma imagem os precede */
-.section-illustration + h3 {
-  margin-top: 2rem; /* Garante espaço após imagem, se H3 vier depois */
+/* Estilos base para o container de texto */
+.section-text {
+  /* Estilos base se necessário */
 }
-h3 + .section-illustration {
-   margin-top: 1rem; /* Espaço entre H3 e imagem abaixo dele */
+
+.section-text p {
+  text-align: justify; /* Texto justificado */
+  line-height: 1.7;   /* Espaçamento entre linhas */
+  margin-bottom: 1rem; /* Espaço entre parágrafos */
+}
+.section-text p:last-child {
+  margin-bottom: 0; /* Remove espaço do último parágrafo */
+}
+
+/* === Layout Lado a Lado (Imagem | Texto) para Telas Maiores === */
+@media (min-width: 800px) { /* Ponto de quebra - ajuste se necessário */
+
+  /* Aplica flex ao wrapper INTERNO de conteúdo */
+  .section-content-wrapper {
+    display: flex;
+    align-items: flex-start; /* Alinha imagem e texto pelo topo */
+    gap: 2.5rem;           /* Espaço entre imagem e texto */
+    margin-top: 1rem;      /* Espaço opcional abaixo do H3 */
+  }
+
+  /* Ajusta a imagem dentro do wrapper flex */
+  .section-content-wrapper .section-illustration {
+    flex: 0 0 300px;  /* Largura fixa para a imagem - ajuste! */
+    max-width: 300px; /* Garante a largura */
+    margin: 0;        /* Remove margem automática usada no mobile */
+  }
+
+  /* Ajusta o texto dentro do wrapper flex */
+  .section-content-wrapper .section-text {
+    flex: 1;          /* Ocupa o espaço restante */
+    text-align: left; /* Alinha o container à esquerda */
+  }
+  .section-content-wrapper .section-text p {
+     text-align: justify; /* Mantém parágrafos justificados */
+  }
+
+} /* Fim da media query min-width: 800px */
+
+/* Ajuste adicional para telas muito pequenas */
+@media (max-width: 480px) {
+    .section-illustration {
+        max-width: 95%; /* Garante que imagem não fique enorme */
+    }
+    .section-text p {
+       text-align: left; /* Melhora leitura em telas bem pequenas */
+    }
+}
+
+/* Estilos gerais para elementos da página (se não estiverem no global) */
+.content-section-inner hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--ryutama-green-light, #d4e0c4);
+  margin: 2.5rem auto;
+  max-width: 90%; /* Linha separadora mais sutil */
+}
+
+.content-section-inner section h3 {
+  margin-top: 2rem; /* Espaço ACIMA dos títulos de seção */
+  margin-bottom: 1.5rem; /* Espaço ABAIXO dos títulos de seção */
+  font-size: 1.6rem;
+  color: var(--ryutama-green-medium, #4a7c59);
+  border-bottom: 1px solid var(--ryutama-green-light, #d4e0c4);
+  padding-bottom: 0.5rem;
+  /* Removido text-align: center para seguir alinhamento do container */
 }
