@@ -1,15 +1,27 @@
+// Em src/app/header/header.component.ts
 import { Component } from '@angular/core';
-// Se estiver usando Standalone Components:
-import { RouterModule } from '@angular/router'; // Necessário para routerLink, routerLinkActive
-import { CommonModule } from '@angular/common'; // Se usar *ngIf, *ngFor, etc.
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  standalone: true, // Descomente se for standalone
-  imports: [RouterModule, CommonModule], // Descomente se for standalone
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'], // ou .scss
+  styleUrls: ['./header.component.scss'] // ou .scss
 })
 export class HeaderComponent {
-  // Lógica do componente (se necessária) vai aqui
+
+  scrollToSection(sectionId: string): void {
+    // Encontra o elemento na página com o ID correspondente
+    const element = document.getElementById(sectionId);
+
+    if (element) {
+      // Se encontrar o elemento, rola suavemente até ele
+      // 'start' alinha o topo do elemento com o topo da área visível
+      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    } else {
+      console.warn(`Elemento com ID '${sectionId}' não encontrado para rolagem.`);
+    }
+  }
+
 }

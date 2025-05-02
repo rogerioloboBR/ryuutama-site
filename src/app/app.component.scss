@@ -1,0 +1,4 @@
+/* Em app.component.css ou styles.scss */
+main { /* Ou body, ou outro seletor que envolva <router-outlet> */
+  padding-top: 80px; /* <<-- AJUSTE 80px para a altura real do seu header */
+}

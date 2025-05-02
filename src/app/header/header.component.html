@@ -4,6 +4,9 @@
   </div>
   <nav class="main-navigation">
     <ul>
-      <li><a href="#">Início</a></li> <li><a href="#o-que-e">O Que é?</a></li> <li><a href="#mecanicas">Mecânicas</a></li> <li><a href="/comprar">Onde Comprar?</a></li> </ul>
+      <li><a routerLink="/">Início</a></li>
+      <li><a href="javascript:void(0);" (click)="scrollToSection('o-que-e')">O Que é?</a></li>
+      <li><a href="javascript:void(0);" (click)="scrollToSection('mecanicas')">Mecânicas</a></li>
+      <li><a routerLink="/comprar">Onde Comprar?</a></li> </ul>
   </nav>
 </header>

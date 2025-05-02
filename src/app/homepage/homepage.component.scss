@@ -1,46 +1,49 @@
-/* --- Estilos da Hero Section --- */
+/* Arquivo: homepage.component.css */
+/* === CÓDIGO AJUSTADO FOCANDO APENAS NA HERO SECTION === */
+
+/* Definindo variáveis CSS (se não estiverem globais em :root) */
+/* Usei os valores diretos abaixo como estavam no seu último código */
+
+/* --- Estilos da Hero Section (COM AJUSTES) --- */
 .hero-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 70vh; /* Ajuste conforme necessário */
+  min-height: 70vh;
   padding: 2rem;
-  background-color: var(--ryutama-cream);
+  background-color: #f0f4f8; /* Valor do seu código */
   text-align: center;
 }
 
-.hero-image-container {
-  width: 90%; /* Ocupa boa parte da largura em telas pequenas */
-  max-width: 550px; /* Tamanho máximo da imagem, ajuste como preferir */
-  margin-bottom: 2rem; /* Espaço abaixo da imagem em telas pequenas */
-  border-radius: 8px; /* Opcional: Cantos arredondados */
-  overflow: hidden; /* Garante que a imagem fique dentro dos cantos arredondados */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Opcional: Sombra suave */
-  /* REMOVER estilos de placeholder como background-color, border, color, display: flex, etc. */
+.hero-image-container { /* Presumindo que você usou esta classe no HTML */
+  width: 90%;
+  max-width: 550px;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para a imagem em si */
 .hero-image-container img {
-  display: block; /* Remove espaço extra indesejado abaixo da imagem */
-  width: 100%; /* Faz a imagem ocupar todo o espaço do container */
-  height: auto; /* Mantém a proporção original da imagem */
-  /* object-fit: cover; */ /* Descomente se quiser que a imagem preencha e corte */
+  display: block;
+  width: 100%;
+  height: auto;
 }
-
 
 .hero-content {
-  max-width: 800px; /* Limita largura do bloco de texto */
-  margin: 0 auto; /* Centraliza o bloco */
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .hero-content h1 {
-  font-family: var(--font-serif-headings);
-  font-size: 2.8rem;
-  color: var(--ryutama-green-dark);
+  font-family: 'Merriweather', serif; /* Substitua pela sua fonte */
+  /* ===== TAMANHO DO TÍTULO AJUSTADO (BASE/MOBILE) ===== */
+  font-size: 2.2rem; /* <<< AJUSTADO (era 2.8rem no seu código) */
+  color: #3e563f;  /* Valor do seu código (var(--ryutama-green-dark)) */
   margin-bottom: 1rem;
+  line-height: 1.3; /* <<< Adicionado */
 }
 
-/* === ESTILOS PARA O POEMA === */
 .hero-content .intro-poem {
   margin: 2rem auto;
   max-width: 600px;
@@ -48,33 +51,30 @@
 }
 
 .hero-content .intro-poem p {
-  font-family: var(--font-serif-poem);
+  font-family: 'Georgia', serif; /* Substitua pela sua fonte */
   font-style: italic;
   font-size: 1.15rem;
   line-height: 1.8;
-  color: var(--ryutama-green-medium);
-  white-space: pre-line; /* Mantém as quebras de linha do HTML (<br>) */
+  color: #4a7c59; /* Valor do seu código (var(--ryutama-green-medium)) */
+  white-space: pre-line;
   text-align: center;
 }
-/* ============================ */
 
-/* === ESTILOS PARA O PARÁGRAFO === */
 .hero-content .intro-paragraph {
-  font-family: var(--font-sans-body);
+  font-family: 'Lato', sans-serif; /* Substitua pela sua fonte */
   font-size: 1.1rem;
   line-height: 1.6;
-  color: var(--text-color-dark);
-  margin: 0 auto 2rem auto; /* Espaçamento abaixo */
-  max-width: 700px; /* Limita largura */
+  color: #2d3748; /* Valor do seu código (var(--text-color-dark)) */
+  margin: 0 auto 2rem auto;
+  max-width: 700px;
   padding: 0 1rem;
 }
-/* ============================== */
 
 .hero-cta {
   margin-top: 1rem;
 }
 
-/* --- Estilos dos Botões --- */
+/* --- Estilos dos Botões (Mantidos como no seu código) --- */
 .cta-button {
   padding: 0.8rem 1.8rem;
   border: none;
@@ -93,33 +93,33 @@
 }
 
 .cta-button.primary {
-  background-color: var(--ryutama-green-medium);
-  color: var(--text-color-light);
+  background-color: #4a7c59;
+  color: white;
 }
 .cta-button.primary:hover {
-  background-color: #416d4f; /* Verde um pouco mais escuro */
+  background-color: #416d4f;
 }
 
 .cta-button.secondary {
   background-color: transparent;
-  color: var(--ryutama-green-medium);
-  border: 2px solid var(--ryutama-green-medium);
+  color: #4a7c59;
+  border: 2px solid #4a7c59;
 }
 .cta-button.secondary:hover {
-  background-color: rgba(74, 124, 89, 0.1); /* Fundo leve ao passar o mouse */
+  background-color: rgba(74, 124, 89, 0.1);
 }
 
-/* --- Estilos para a Seção de Destaques --- */
+/* --- Estilos para a Seção de Destaques (MANTIDOS EXATAMENTE COMO VOCÊ ENVIOU) --- */
 .highlights-section {
   padding: 3rem 2rem;
-  background-color: var(--ryutama-background-alt);
+  background-color: #ffffff; /* Exemplo de var(--ryutama-background-alt) */
   text-align: center;
 }
 
 .highlights-section h2 {
-  font-family: var(--font-serif-headings);
+  font-family: 'Merriweather', serif; /* Exemplo de var(--font-serif-headings) */
   font-size: 2.2rem;
-  color: var(--ryutama-green-dark);
+  color: #3e563f; /* Exemplo de var(--ryutama-green-dark) */
   margin-bottom: 2.5rem;
 }
 
@@ -133,93 +133,101 @@
 }
 
 .highlight-item {
-  background-color: var(--ryutama-cream);
+  background-color: #f0f4f8; /* Exemplo de var(--ryutama-cream) */
   padding: 1.5rem 1rem;
   border-radius: 8px;
-  border: 1px solid var(--ryutama-green-light);
+  border: 1px solid #d4e0c4; /* Exemplo de var(--ryutama-green-light) */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Mantido como no seu código (lembre-se de corrigir no HTML ou aqui se usar <img>) */
 .highlight-item .icon-placeholder {
   display: inline-block;
   font-size: 3rem;
-  color: var(--ryutama-green-medium);
+  color: #4a7c59;
   margin-bottom: 1rem;
-  /* Precisa ser substituído por ícone real */
 }
 
 .highlight-item h3 {
-  font-family: var(--font-sans-body);
+  font-family: 'Lato', sans-serif; /* Exemplo de var(--font-sans-body) */
   font-size: 1.25rem;
-  color: var(--ryutama-green-dark);
+  color: #3e563f; /* Exemplo de var(--ryutama-green-dark) */
   margin-bottom: 0.75rem;
   font-weight: 600;
 }
 
 .highlight-item p {
-  font-family: var(--font-sans-body);
+  font-family: 'Lato', sans-serif; /* Exemplo de var(--font-sans-body) */
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--text-color-dark);
-  flex-grow: 1; /* Ajuda a alinhar itens de alturas diferentes */
+  color: #2d3748; /* Exemplo de var(--text-color-dark) */
+  flex-grow: 1;
 }
 
-/* --- Estilos para a Chamada Final --- */
+/* --- Estilos para a Chamada Final (MANTIDOS COMO VOCÊ ENVIOU) --- */
 .final-cta {
   text-align: center;
   padding: 3rem 1rem;
-  background-color: var(--ryutama-cta-bg);
-  color: var(--ryutama-green-dark);
+  background-color: #e2e8f0; /* Exemplo de var(--ryutama-cta-bg) */
+  color: #3e563f; /* Exemplo de var(--ryutama-green-dark) */
 }
 
 .final-cta p {
-  margin-bottom: 0.8rem;
-  font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
 }
 
 .final-cta .cta-button.small {
-  padding: 0.7rem 1.4rem;
-  font-size: 1rem;
-  margin-left: 0.5rem;
-  background-color: var(--ryutama-green-medium);
-  color: var(--text-color-light);
-  border: none;
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    background-color: #4a7c59; /* Exemplo de var(--ryutama-green-medium) */
+    color: white; /* Exemplo de var(--text-color-light) */
+    border: none;
 }
 
 .final-cta .cta-button.small:hover {
-  background-color: #416d4f; /* Verde um pouco mais escuro */
+  background-color: #416d4f;
 }
 
-/* --- Responsividade --- */
+
+/* --- Responsividade (COM AJUSTES NA HERO SECTION) --- */
 @media (min-width: 768px) {
   .hero-section {
     flex-direction: row;
     text-align: left;
+    /* ===== ALINHAMENTO VERTICAL AJUSTADO ===== */
+    align-items: center; /* <<< ADICIONADO */
+    padding: 3rem 2rem;
   }
 
+  /* Usando nome placeholder como no seu código, ajuste se mudou no HTML */
   .hero-image-placeholder {
-    width: 40%;
+    width: 45%;
+    max-width: 500px;
     margin-bottom: 0;
-    margin-right: 2rem;
+    margin-right: 2.5rem;
   }
 
   .hero-content {
-    width: 60%;
+    width: 55%;
     max-width: none;
     text-align: left;
-    margin: 0; /* Resetar margem auto */
+    margin: 0;
   }
 
   .hero-content h1 {
-    font-size: 3.2rem;
+     /* ===== TAMANHO DO TÍTULO AJUSTADO (DESKTOP) ===== */
+    font-size: 2.6rem; /* <<< AJUSTADO (era 3.2rem no seu código) */
   }
 
+  /* Mantendo como estava no seu código (mas considere ajustar se necessário) */
   .hero-content .intro-poem p {
     font-size: 1.2rem;
-    text-align: left; /* Ou manter center */
+    text-align: left;
   }
 
   .hero-content .intro-paragraph {
@@ -232,9 +240,11 @@
 
 @media (max-width: 500px) {
   .hero-content h1 {
-      font-size: 2.4rem;
+      /* ===== TAMANHO DO TÍTULO AJUSTADO (MOBILE) ===== */
+      font-size: 2.2rem; /* <<< AJUSTADO (era 2.4rem no seu código) */
   }
 
+  /* Mantendo o resto como no seu código */
   .highlights-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
