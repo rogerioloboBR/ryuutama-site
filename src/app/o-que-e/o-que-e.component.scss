@@ -1,0 +1,23 @@
+.section-illustration {
+  max-width: 500px; /* Limita largura das imagens */
+  margin: 0.5rem auto 1.8rem auto; /* Margem acima(pouca)/horizontal(auto)/abaixo(mais)/horizontal(auto) */
+  border-radius: 4px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  border: 1px solid #eaeaea; /* Borda bem clara */
+  background-color: #fff; /* Fundo branco, caso a imagem tenha transparência */
+}
+
+.section-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Ajustes de margem para os H3 quando uma imagem os precede */
+.section-illustration + h3 {
+  margin-top: 2rem; /* Garante espaço após imagem, se H3 vier depois */
+}
+h3 + .section-illustration {
+   margin-top: 1rem; /* Espaço entre H3 e imagem abaixo dele */
+}
