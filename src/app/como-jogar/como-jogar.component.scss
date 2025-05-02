@@ -1,30 +1,116 @@
-/* Adicionar ao arquivo src/app/como-jogar/como-jogar.component.css */
+/* Arquivo: src/app/como-jogar/como-jogar.component.css (ou .scss) */
+
+/* Estilos gerais para a página (podem vir de styles.scss) */
+/* .content-section-inner { ... } */
+/* h2, h3, p, hr etc. devem pegar estilos globais */
+
+/* === Layout Intro: Imagem + Texto Lado a Lado (Desktop) === */
+.intro-layout {
+  /* Por padrão (mobile), os itens empilham */
+  display: block;
+  margin-bottom: 2rem; /* Espaço antes da linha hr */
+}
 
 .page-illustration {
-  max-width: 600px; /* Limita a largura máxima da imagem */
-  margin: 1.5rem auto 2.5rem auto; /* Centraliza e adiciona margem vertical (topo auto baixo) */
-  border-radius: 6px; /* Opcional: cantos suaves */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12); /* Opcional: sombra um pouco mais forte */
-  overflow: hidden; /* Garante que a imagem respeite o border-radius */
-  border: 1px solid #eee; /* Borda clara muito sutil */
+  max-width: 550px;
+  margin: 0 auto 1.5rem auto; /* Centraliza e margem inferior no mobile */
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  border: 1px solid #eee;
 }
 
 .page-illustration img {
-  display: block; /* Remove espaço extra abaixo */
-  width: 100%;   /* Imagem responsiva, preenche o container */
-  height: auto;  /* Mantém proporção */
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-/* Ajuste responsivo opcional para a imagem */
-@media (max-width: 767px) {
-    .page-illustration {
-        max-width: 90%; /* Imagem ocupa mais largura em telas menores */
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-    }
+.intro-text-beside {
+  /* Estilos para o texto introdutório */
 }
 
-/* Ajuste para garantir que o primeiro parágrafo após a imagem tenha espaço */
-.page-illustration + p {
-    margin-top: 2rem; /* Adiciona espaço entre a imagem e o primeiro parágrafo */
+.intro-text-beside p {
+  text-align: justify; /* Justifica o texto introdutório */
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* Aplica layout Flexbox em telas maiores */
+@media (min-width: 800px) { /* Ponto de quebra - ajuste se necessário */
+  .intro-layout {
+    display: flex;
+    align-items: flex-start; /* Alinha pelo topo */
+    gap: 2.5rem; /* Espaço entre imagem e texto */
+  }
+
+  .page-illustration {
+    flex: 0 0 45%; /* Imagem ocupa 45% da largura, sem crescer/encolher */
+    max-width: 450px; /* Limita tamanho máximo */
+    margin: 0; /* Remove margem automática */
+  }
+
+  .intro-text-beside {
+    flex: 1; /* Texto ocupa o espaço restante */
+  }
+}
+/* ======================================================= */
+
+
+/* === Estilos para Destaques no Texto === */
+.gm-name {
+  font-weight: bold;
+  color: var(--ryutama-green-dark, #3e563f); /* Cor para o GM */
+}
+
+.player-name {
+  font-weight: bold;
+  color: var(--ryutama-green-medium, #4a7c59); /* Cor para Jogadores */
+}
+
+.dice-roll {
+  font-weight: bold;
+  color: #c53030; /* Cor para rolagens (ex: vermelho escuro) */
+  /* background-color: #fefcbf; */ /* Opcional: fundo amarelo claro */
+  /* padding: 0.1em 0.3em; */
+  /* border-radius: 3px; */
+}
+
+.mechanic-highlight {
+  background-color: var(--ryutama-cream, #f0f4f8); /* Fundo leve */
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  font-family: monospace; /* Fonte monoespaçada */
+  font-size: 0.9em;
+  border: 1px solid var(--ryutama-green-light, #d4e0c4);
+  color: var(--text-color-dark);
+}
+/* ==================================== */
+
+
+/* Estilos para o restante do conteúdo da página */
+.content-section-inner hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--ryutama-green-light, #d4e0c4);
+  margin: 2.5rem 0;
+}
+
+.content-section-inner section h3 {
+  margin-top: 0; /* Remove margem topo dos H3 de seção */
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  color: var(--ryutama-green-medium);
+  border-bottom: 1px solid var(--ryutama-green-light, #d4e0c4);
+  padding-bottom: 0.5rem;
+}
+
+/* Ajuste responsivo para imagem/texto intro */
+@media (max-width: 799px) { /* Abaixo do ponto de quebra do flex */
+  .page-illustration {
+    max-width: 80%; /* Imagem maior em telas médias/pequenas */
+  }
+   .intro-text-beside p {
+     text-align: left; /* Melhora leitura */
+   }
 }
