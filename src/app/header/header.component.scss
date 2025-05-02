@@ -27,3 +27,14 @@
   text-decoration: underline;
 }
 /* Adicionar mais estilos e responsividade */
+/* Em header.component.css ou styles.css/.scss global */
+.site-header {
+  /* ... seus outros estilos (display, padding, background, etc.) ... */
+
+  position: sticky; /* Faz o elemento 'grudar' */
+  top: 0;           /* Gruda quando atingir o topo da viewport */
+  left: 0;          /* Garante que ocupe a largura */
+  width: 100%;      /* Garante que ocupe a largura */
+  z-index: 1000;    /* Garante que fique acima de outros conteúdos */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Opcional: Sombra para destacar */
+}
