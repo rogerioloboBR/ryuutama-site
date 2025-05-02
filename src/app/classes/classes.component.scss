@@ -1,0 +1,45 @@
+/* Em src/app/classes/classes.component.css */
+.class-detail {
+  display: flex;
+  align-items: flex-start; /* Alinha pelo topo */
+  gap: 1.5rem; /* Espaço entre imagem e texto */
+  margin-bottom: 2rem; /* Espaço entre as classes */
+}
+
+.class-image-container {
+  flex-shrink: 0; /* Impede que o container da imagem encolha */
+  width: 150px; /* Largura fixa para a imagem - ajuste conforme necessário */
+}
+
+.class-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px; /* Opcional */
+}
+
+.class-text {
+  flex-grow: 1; /* Faz o texto ocupar o espaço restante */
+}
+
+.class-text h3 {
+  margin-top: 0; /* Remove margem do topo do título da classe */
+  font-size: 1.8rem; /* Exemplo */
+  color: var(--ryutama-green-medium); /* Exemplo */
+}
+
+/* Adicionar media query para empilhar imagem e texto em telas pequenas */
+@media (max-width: 600px) {
+  .class-detail {
+    flex-direction: column;
+    align-items: center; /* Centraliza imagem e texto na coluna */
+    text-align: center;
+  }
+  .class-image-container {
+    width: 120px; /* Imagem menor no mobile */
+    margin-bottom: 1rem;
+  }
+   .class-text {
+     text-align: left; /* Ou manter center se preferir */
+   }
+}
