@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=UnifrakturCook:wght@700&display=swap');
+
+/* Base de todos os cards */
+.ao-ryuu-card,
+.midori-ryuu-card,
+.kurenai-ryuu-card,
+.kuro-ryuu-card {
+  background-color: #f8f2c5;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 700px;
+  margin: 32px auto;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'EB Garamond', serif;
+  color: #000;
+}
+
+.ao-ryuu-card img,
+.midori-ryuu-card img,
+.kurenai-ryuu-card img,
+.kuro-ryuu-card img {
+  width: 100%;
+  border: 10px solid;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* Borda com cor personalizada por tipo */
+.ao-ryuu-card img {
+  border-color: #d9a53a; /* dourado/amarelo */
+}
+
+.midori-ryuu-card img {
+  border-color: #5ca66f; /* verde folha */
+}
+
+.kurenai-ryuu-card img {
+  border-color: #b63e3e; /* vermelho escuro */
+}
+
+.kuro-ryuu-card img {
+  border-color: #4a4a4a; /* cinza/preto */
+}
+
+.ao-ryuu-card h2,
+.midori-ryuu-card h2,
+.kurenai-ryuu-card h2,
+.kuro-ryuu-card h2 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.ao-ryuu-card p,
+.midori-ryuu-card p,
+.kurenai-ryuu-card p,
+.kuro-ryuu-card p {
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.ao-ryuu-card .details,
+.midori-ryuu-card .details,
+.kurenai-ryuu-card .details,
+.kuro-ryuu-card .details {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.ao-ryuu-card .details span,
+.midori-ryuu-card .details span,
+.kurenai-ryuu-card .details span,
+.kuro-ryuu-card .details span {
+  display: block;
+  margin-top: 8px;
+}
