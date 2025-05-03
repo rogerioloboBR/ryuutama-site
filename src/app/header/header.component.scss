@@ -10,6 +10,7 @@
   border-bottom: 1px solid #a3b899; /* Exemplo */
   z-index: 1000;    /* Garante que fique acima de outros conteúdos */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Opcional: Sombra para destacar */
+
 }
 
 .main-navigation ul {
@@ -32,4 +33,50 @@
 }
 /* Adicionar mais estilos e responsividade */
 /* Em header.component.css ou styles.css/.scss global */
+
+/* Em src/app/header/header.component.css (ou .scss) */
+
+.logo-container a {
+  display: inline-block; /* Para o link se comportar bem */
+  line-height: 0; /* Ajuda a remover espaço extra da imagem */
+}
+
+.logo-desktop,
+.logo-mobile {
+  /* Estilo base para ambos os logos */
+  height: auto; /* Mantém proporção */
+  width: auto;  /* Largura automática baseada na altura */
+  max-width: 100%; /* Garante que não ultrapasse o container */
+}
+
+/* Logo de Desktop: escondido por padrão (mobile first) */
+.logo-desktop {
+  display: none;
+  max-height: 55px; /* Altura máxima para o logo completo - AJUSTE */
+}
+
+/* Logo Mobile: visível por padrão */
+.logo-mobile {
+  display: block; /* Ou inline-block */
+  max-height: 45px; /* Altura máxima para o logo mobile - AJUSTE */
+}
+
+/* Media Query para telas maiores */
+@media (min-width: 768px) { /* Ponto de quebra onde o logo completo deve aparecer */
+
+  /* Mostra logo de Desktop */
+  .logo-desktop {
+    display: block; /* Ou inline-block */
+  }
+  /* Esconde logo Mobile */
+  .logo-mobile {
+    display: none;
+  }
+}
+
+/* Garanta que o header acomode o logo verticalmente */
+.site-header {
+  /* ... Seus outros estilos (padding, background, display: flex, etc) ... */
+
+}
 
