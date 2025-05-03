@@ -1,82 +1,155 @@
-/* Estilos para .site-header, .logo-container, .main-navigation ul, li, a, .active-link, etc. */
+/* Arquivo: src/app/header/header.component.css (ou .scss) */
+/* === REVISÃO CSS DO HEADER v2 - Foco em Forçar Layout Mobile === */
+
+/* Container Geral do Header */
 .site-header {
-  position: sticky; /* Faz o elemento 'grudar' */
-  top: 0;
+  position: sticky; top: 0; left: 0;
+  width: 100%; z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #d4e0c4; /* Cor de exemplo - estilo Ryuutama */
-  border-bottom: 1px solid #a3b899; /* Exemplo */
-  z-index: 1000;    /* Garante que fique acima de outros conteúdos */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Opcional: Sombra para destacar */
-
+  padding: 0.6rem 1.5rem;
+  background-color: var(--ryutama-green-light, #d4e0c4);
+  border-bottom: 1px solid var(--ryutama-green-medium, #4a7c59);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+  min-height: 65px; /* Altura mínima ajuda a estabilizar layout */
 }
 
-.main-navigation ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem; /* Espaçamento entre links */
-  margin: 0;
-  padding: 0;
+/* Container do Logo */
+.logo-container {
+  flex-shrink: 0; /* Impede que o logo seja esmagado */
+}
+.logo-container a { display: inline-block; line-height: 0; }
+
+/* Logos */
+.logo-desktop, .logo-mobile {
+  height: auto; width: auto; max-width: 100%; vertical-align: middle;
+}
+.logo-desktop { max-height: 50px; /* AJUSTE */ }
+.logo-mobile { max-height: 50px; /* AJUSTE */ }
+
+/* --- CONTROLE DE VISIBILIDADE E LAYOUT (Mobile First) --- */
+
+.logo-desktop { display: none; }
+.logo-mobile { display: inline-block; }
+
+/* Botão Hambúrguer */
+.mobile-nav-toggle {
+  display: block; /* Visível no mobile */
+  background: none; border: none;
+  font-size: 2.2rem; cursor: pointer;
+  color: var(--ryutama-green-dark, #3e563f);
+  padding: 0.1rem 0; /* Padding vertical pequeno, sem horizontal */
+  line-height: 1;
+  margin-left: auto; /* Empurra o botão para a direita (se não houver nav) */
+  order: 3; /* Garante que fique depois da nav no fluxo flex base */
 }
 
-.main-navigation a {
-  text-decoration: none;
-  color: #3e563f; /* Exemplo */
-  font-weight: bold;
+/* Navegação Principal */
+.main-navigation {
+  /* Escondido por padrão no mobile - controlado pelo *ngIf no HTML */
+  order: 2; /* Ordem no flex base */
 }
 
-.main-navigation a.active-link {
-  /* Estilo para link ativo */
-  text-decoration: underline;
-}
-/* Adicionar mais estilos e responsividade */
-/* Em header.component.css ou styles.css/.scss global */
+/* --- Estilos específicos para MOBILE (max-width) --- */
+@media (max-width: 767px) {
 
-/* Em src/app/header/header.component.css (ou .scss) */
+  /* Estilos quando o menu está ABERTO no mobile (graças ao *ngIf no nav) */
+  .main-navigation { /* Só aplica quando *ngIf for true */
+    display: block !important; /* Força exibição */
+    position: absolute;
+    top: 100%; /* Começa logo abaixo do header */
+    left: 0;
+    right: 0;
+    background-color: rgba(212, 224, 196, 0.99);
+    padding: 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    z-index: 999;
+    border-bottom: 1px solid var(--ryutama-green-medium, #4a7c59);
+    max-height: calc(100vh - 65px); /* Altura máxima (tela - header aprox) */
+    overflow-y: auto;
 
-.logo-container a {
-  display: inline-block; /* Para o link se comportar bem */
-  line-height: 0; /* Ajuda a remover espaço extra da imagem */
-}
+    /* === FORÇANDO LAYOUT VERTICAL PARA UL DENTRO DO MOBILE === */
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex; /* Usar flex ainda é bom para align-items */
+      flex-direction: column !important; /* <<< FORÇA A DIREÇÃO */
+      align-items: stretch; /* Itens esticam na largura */
+      width: 100%;
+    }
 
-.logo-desktop,
-.logo-mobile {
-  /* Estilo base para ambos os logos */
-  height: auto; /* Mantém proporção */
-  width: auto;  /* Largura automática baseada na altura */
-  max-width: 100%; /* Garante que não ultrapasse o container */
-}
+    li {
+      width: 100%;
+      text-align: left; /* Alinha texto do link à esquerda */
+      border-bottom: 1px solid rgba(163, 184, 153, 0.6); /* Linha separadora */
+    }
+    li:last-child {
+       border-bottom: none; /* Remove linha do último item */
+    }
 
-/* Logo de Desktop: escondido por padrão (mobile first) */
-.logo-desktop {
-  display: none;
-  max-height: 55px; /* Altura máxima para o logo completo - AJUSTE */
-}
+    a {
+      display: block;
+      padding: 0.9rem 1.5rem; /* Padding para toque */
+      width: 100%;
+      font-size: 1.1rem;
+      color: var(--ryutama-green-dark, #3e563f);
+      text-decoration: none;
+      white-space: normal;
+      box-sizing: border-box;
+      font-weight: bold;
+    }
 
-/* Logo Mobile: visível por padrão */
-.logo-mobile {
-  display: block; /* Ou inline-block */
-  max-height: 45px; /* Altura máxima para o logo mobile - AJUSTE */
-}
-
-/* Media Query para telas maiores */
-@media (min-width: 768px) { /* Ponto de quebra onde o logo completo deve aparecer */
-
-  /* Mostra logo de Desktop */
-  .logo-desktop {
-    display: block; /* Ou inline-block */
+    a:hover, a.active-link {
+       background-color: rgba(74, 124, 89, 0.1);
+       color: var(--text-color-dark, #2d3748);
+       text-decoration: none; /* Sem sublinhado no mobile */
+    }
   }
-  /* Esconde logo Mobile */
-  .logo-mobile {
-    display: none;
+} /* Fim da Media Query Mobile */
+
+
+/* --- Estilos para DESKTOP (min-width) --- */
+@media (min-width: 768px) {
+  .logo-desktop { display: inline-block; }
+  .logo-mobile { display: none; }
+  .mobile-nav-toggle { display: none; } /* Esconde botão hambúrguer */
+
+  .main-navigation {
+      /* Garante que a navegação desktop esteja visível e formatada */
+      display: block !important; /* Garante visibilidade se usou *ngIf */
+      position: static;
+      background-color: transparent;
+      box-shadow: none;
+      border-bottom: none;
+      padding: 0;
+      margin-left: 1rem; /* Espaço logo-nav */
+      max-height: none;
+      overflow-y: visible;
   }
-}
-
-/* Garanta que o header acomode o logo verticalmente */
-.site-header {
-  /* ... Seus outros estilos (padding, background, display: flex, etc) ... */
-
-}
-
+  .main-navigation ul {
+    display: flex;
+    flex-direction: row !important; /* <<< FORÇA A DIREÇÃO HORIZONTAL */
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: nowrap;
+    width: auto;
+  }
+  .main-navigation li { width: auto; border-bottom: none; text-align: left; }
+  .main-navigation a {
+     font-size: 1rem;
+     padding: 0.5rem 0.5rem;
+     width: auto;
+     border-bottom: none;
+     white-space: nowrap;
+     text-align: left;
+  }
+   .main-navigation a:hover,
+   .main-navigation a.active-link {
+      background-color: transparent;
+      text-decoration: underline; /* Volta sublinhado desktop */
+      color: var(--text-color-dark, #2d3748);
+   }
+} /* Fim da Media Query Desktop */

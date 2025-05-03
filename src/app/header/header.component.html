@@ -5,12 +5,16 @@
            alt="Logo Completo Ryuutama: Um RPG de Fantasia Natural"
            class="logo-desktop">
 
-      <img src="assets/img/logos/ryuutama-icone.png"
+      <img src="../../assets/img/RyuutamaLogoModile.png"
            alt="Ícone Ryuutama"
            class="logo-mobile">
     </a>
   </div>
-  <nav class="main-navigation">
+  <button class="mobile-nav-toggle" (click)="toggleMobileMenu()" aria-label="Alternar menu">
+    ☰
+    </button>
+
+  <nav class="main-navigation" [class.mobile-nav-open]="isMobileMenuOpen" *ngIf="isMobileMenuOpen || !isMobileView">
     <ul>
       <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Início</a></li>
       <li><a routerLink="/classes" routerLinkActive="active-link">Viajantes</a></li>

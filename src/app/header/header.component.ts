@@ -1,27 +1,54 @@
-// Em src/app/header/header.component.ts
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit, ChangeDetectorRef } from '@angular/core'; // Importar HostListener, OnInit, ChangeDetectorRef
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common'; // Para *ngIf
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule], // Precisa do CommonModule para *ngIf
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'] // ou .scss
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
-  scrollToSection(sectionId: string): void {
-    // Encontra o elemento na página com o ID correspondente
-    const element = document.getElementById(sectionId);
+  isMobileMenuOpen = false;
+  isMobileView = false;
 
-    if (element) {
-      // Se encontrar o elemento, rola suavemente até ele
-      // 'start' alinha o topo do elemento com o topo da área visível
-      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-    } else {
-      console.warn(`Elemento com ID '${sectionId}' não encontrado para rolagem.`);
+  // Injetar ChangeDetectorRef para ajudar na detecção de mudanças
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  ngOnInit(): void {
+    this.checkViewport();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event?: Event) {
+    this.checkViewport();
+  }
+
+  checkViewport() {
+    const wasMobile = this.isMobileView;
+    // Define o breakpoint (ex: 768px) - DEVE SER O MESMO DO CSS
+    this.isMobileView = window.innerWidth < 768;
+
+    // Se deixou de ser mobile, força o fechamento do menu
+    if (wasMobile && !this.isMobileView) {
+      this.isMobileMenuOpen = false;
+    }
+    // Ajuda o Angular a detectar a mudança em isMobileView para o *ngIf
+    this.cdr.detectChanges();
+  }
+
+  toggleMobileMenu(): void {
+    if (this.isMobileView) { // Só permite abrir/fechar se for mobile
+       this.isMobileMenuOpen = !this.isMobileMenuOpen;
     }
   }
 
+  // Fecha o menu ao clicar em um link (se estiver no mobile)
+  closeMobileMenu(): void {
+    if (this.isMobileView) {
+      this.isMobileMenuOpen = false;
+    }
+  }
 }
