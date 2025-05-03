@@ -17,6 +17,7 @@
   <nav class="main-navigation" [class.mobile-nav-open]="isMobileMenuOpen" *ngIf="isMobileMenuOpen || !isMobileView">
     <ul>
       <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()">Início</a></li>
+      <li><a routerLink="/classes" routerLinkActive="active-link" (click)="closeMobileMenu()">Viajantes</a></li>
       <li><a routerLink="/ryuujin" routerLinkActive="active-link" (click)="closeMobileMenu()">Ryuujin (Mestres)</a></li>
       <li><a routerLink="/mundo" routerLinkActive="active-link" (click)="closeMobileMenu()">Criação de Mundo</a></li>
       <li><a routerLink="/como-jogar" routerLinkActive="active-link" (click)="closeMobileMenu()">Como se Joga</a>
