@@ -61,3 +61,43 @@ a:hover {
     padding-left: 10px;
     margin-bottom: 1.5rem;
 }
+.cta-button {
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+}
+
+.cta-button.primary {
+  background-color: var(--ryutama-green-medium, #4a7c59);
+  color: var(--text-color-light, white);
+}
+.cta-button.primary:hover {
+  background-color: #416d4f; /* Ou use darken() se estiver em SCSS */
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: var(--ryutama-green-medium, #4a7c59);
+  border: 2px solid var(--ryutama-green-medium, #4a7c59);
+}
+.cta-button.secondary:hover {
+  background-color: rgba(74, 124, 89, 0.1);
+}
+
+/* Se você também usou .small */
+.cta-button.small {
+   padding: 0.7rem 1.4rem;
+   font-size: 0.9rem;
+}
